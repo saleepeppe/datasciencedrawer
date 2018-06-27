@@ -1,4 +1,5 @@
 # datasciencedrawer
-Data science ideas, examples and small scripts
+Data science ideas, examples and small scripts...
 
-[xgboost](./xgboost/README.md)
+## Ideas
+- [xgboost](./xgboost/README.md "xgboost")
