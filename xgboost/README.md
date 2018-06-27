@@ -10,5 +10,5 @@ The performances of the metric are provided by:
 
 where ![f2] is the metric and the subscripts identify the training rounds.
 
-[f1] https://chart.apis.google.com/chart?cht=tx&chl=\frac{\left%20|{m}_{best}-{m}_{secondbest}\right%20|}{{m}_{last}}
-[f1] https://chart.apis.google.com/chart?cht=tx&chl=m
+[f1]: https://chart.apis.google.com/chart?cht=tx&chl=\frac{\left%20|{m}_{best}-{m}_{secondbest}\right%20|}{{m}_{last}}
+[f1]: https://chart.apis.google.com/chart?cht=tx&chl=m
