@@ -3,7 +3,7 @@
 ## Callbacks
 We have implemented an early stopping xgboost callback based and on behaviour of the stopping metric over the validation set.
 
-https://github.com/saleepeppe/datasciencedrawer/blob/master/xgboost/extra_callbacks.py
+[Check the code](./extra_callbacks.py)
 
 If the stopping metric performances on validation set are less than a tolerance value, stop the training.
 The performances of the metric are provided by:
