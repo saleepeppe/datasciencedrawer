@@ -113,10 +113,10 @@ class PimpPlot(object):
         best = thresholds[argbest]
         
         plt.figure()
+        plt.scatter(best, results[argbest], color = "darkorange", label="Threshold maximising F1 = {}".format(best))
         thresholds.remove(thresholds[argbest])
         results.remove(results[argbest])
         plt.scatter(thresholds, results, color = "navy")
-        plt.scatter(best, results[argbest], color = "darkorange", label="Threshold maximising F1 = {}".format(best))
         plt.xlim([0.0, 1.0])
         plt.ylim([0.0, 1.05])
         plt.xlabel("Threshold")
