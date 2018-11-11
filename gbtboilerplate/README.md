@@ -6,7 +6,7 @@ These scripts aim to build a wrapper to train models based on xgboost, lightgbm 
 
 1. Copy a preprocessed dataset **(no missing values)** in the folder data. 
 
-**IMPORTANT**: The scripts assume the dataset is a csv with a semicolon separator named (dataset.csv).
+**IMPORTANT**: The scripts assume the dataset is a csv file, with a semicolon separator, named dataset.csv.
 
 **IMPORTANT**: The scripts assume there is a column, named ```SET``` which tells if the record is part of the training set ```train```, 
 the validation set ```valid``` or the testing set ```test```.
@@ -24,7 +24,9 @@ Assume you want to train xgboost, then write under the column ```xgboost```:
 - ```index```: if it is the index column
 - ```label```: if it is the label
 - ```predictor```: if it is a predictor column
+
 and leave it blank otherwise.
+
 Furthermore you may have categorical predictors then you need to mark them with ```1``` under the ```categorical``` column. 
 
 4. Edit the parameters in the **.conf** files.
