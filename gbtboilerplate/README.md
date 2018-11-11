@@ -7,6 +7,7 @@ These scripts aim to build a wrapper to train models based on xgboost, lightgbm 
 1. Copy a preprocessed dataset **(no missing values)** in the folder data. 
 
 **IMPORTANT**: The scripts assume the dataset is a csv with a semicolon separator named (dataset.csv).
+
 **IMPORTANT**: The scripts assume there is a column, named ```SET``` which tells if the record is part of the training set ```train```, 
 the validation set ```valid``` or the testing set ```test```.
 
@@ -34,6 +35,7 @@ In particular, in the folder config you find a xgboost subfolder which contains 
 - **xgb_hyper.conf**: containing the hyperparameters of the wanted grid
 
 **IMPORTANT**: The scripts assume you want to perform a binary classification.
+
 **IMPORTANT**: The scripts might depend on other python scripts which can be found in this repo.
 
 5. Launch a RandomSearchCV grid:
