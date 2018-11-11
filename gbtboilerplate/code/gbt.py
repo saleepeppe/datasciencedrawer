@@ -6,7 +6,6 @@ import pandas as pd
 import pimpmatplotlib as pm
 from pandas_utils import group_categoricals_tail
 from sklearn.model_selection import RandomizedSearchCV
-from xgbextras import stopping_at
 
 def main():
     # Load cli params
@@ -87,7 +86,7 @@ def main():
             for set_name, set_indexes in indexes.items():
                 d[set_name].set_label(data.loc[set_indexes, label].values)
             y_test = d["test"].get_label()
-            bst = xgb.train(params=params, dtrain=d["train"], evals=[(d["valid"], "val")], callbacks=[stopping_at(5*10**(-4))])
+            bst = xgb.train(params=params, dtrain=d["train"], evals=[(d["valid"], "val")], callbacks=5)
         elif args.model == "lightgbm":
             for set_name, set_indexes in indexes.items():
                 if set_name == "test":
