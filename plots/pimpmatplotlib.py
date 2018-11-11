@@ -122,7 +122,7 @@ class PimpPlot(object):
         plt.xlabel("Threshold")
         plt.ylabel("F1")
         plt.title("Scatter F1 vs Threshold for {}".format(label))
-        plt.legend(loc="top right")
+        plt.legend(loc="upper right")
         if self.save:
             plt.savefig(os.path.join(self.img_folder, "{}_confusion.png".format(label)))
         

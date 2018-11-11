@@ -20,7 +20,7 @@ def main():
     # Local config
     PREDICTIONS_FILE = "_".join([args.model, args.tag, "pred.csv"])
     SAVE = True
-    pmp = pm.PimpPlot(save=SAVE, folder=os.path.join(c.RESULTS_FOLDER, "plots"))
+    pmp = pm.PimpPlot(save=SAVE, folder=os.path.join(c.RESULTS_FOLDER, "plots", args.model))
 
     # Load config
     cf = c.Config(args.data, args.model, args.tag)
@@ -69,7 +69,8 @@ def main():
             else:
                 d[set_name] = lgb.Dataset(data.loc[set_indexes, features], feature_name=features, categorical_feature=cf.classes["categorical"], free_raw_data=False)
     elif args.model == "catboost":
-        d[set_name] = data.loc[set_indexes, features].values
+        for set_name, set_indexes in indexes.items():
+            d[set_name] = data.loc[set_indexes, features].values
         cat_features = [i for i, f in enumerate(features) if f in cf.classes["categorical"]]
 
     # Booster
@@ -115,7 +116,10 @@ def main():
         pmp.plot_confusion_matrix(y_test, binary_predictions, [0, 1], title)
     
         if SAVE:
-            bst.save_model(os.path.join(c.MODELS_FOLDER, title + ".model"))
+            if args.model == "catboost":
+                model.save_model(os.path.join(c.MODELS_FOLDER, title + ".model"))
+            else:
+                bst.save_model(os.path.join(c.MODELS_FOLDER, title + ".model"))
     
     predictions = pd.DataFrame(predictions)
     predictions.to_csv(os.path.join(c.RESULTS_FOLDER, PREDICTIONS_FILE), sep=";", index=False)
